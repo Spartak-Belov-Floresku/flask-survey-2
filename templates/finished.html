@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block title %}Servey finished{% endblock %}
+{% block body %}
+<h1>Servey finished</h1>
+<h2>“Thank You!”</h2>
+<h2>Yoru answers:</h2>
+{% for k in responses %}
+    <p>{{responses[loop.index-1]}} : "{{sur[loop.index-1]}}"</p>
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %}Home page istructions{% endblock %}
+{% block body %}
+{% with msgs = get_flashed_messages(with_categories = true) %}
+    {% if msgs %}
+        {% for ctg, msg in msgs %}
+            <p class="{{ctg}}">{{ msg }}</p>
+        {% endfor %}
+    {% else %}
+        <!--<h1>{{title}}</h1>
+        <h2>{{instruct}}</h2>
+        <a href="/questions/1">Start to survey</a>-->
+        {% for elm in surveys_list %}
+        <h1>{{elm[0]}}:</h1>
+        <h2>{{elm[1]}}</h2>
+        <a href="/survey/{{elm[2]}}">{{elm[2]}}</a>
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+{% endblock %}
